@@ -28,7 +28,7 @@ jobs:
             php composer.phar --version
       - run:
           name: Copy parameters
-          command: cp app/config/parameters_test.circle.yml app/config/parameters_test.yml
+          command: cp app/config/parameters_test.circleci.yml app/config/parameters_test.yml
       - run:
           name: Install project dependencies
           command: php composer.phar install --prefer-source --no-interaction
