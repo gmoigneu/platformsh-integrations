@@ -9,6 +9,8 @@ jobs:
       - image: mysql:5.7
         environment:
           - MYSQL_ROOT_PASSWORD=tester
+          - MYSQL_USER=tester
+          - MYSQL_PASSWORD=tester
           - MYSQL_DATABASE=circle_test
     steps:
       - run:
