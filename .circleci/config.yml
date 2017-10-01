@@ -38,7 +38,7 @@ jobs:
             php composer.phar --version
       - run:
           name: Set php timezone
-          command: echo "date.timezone = Europe/Paris" >> /opt/circleci/php/7.1.4/etc/php.ini
+          command: echo "date.timezone = Europe/Paris" >> /usr/local/etc/php/php.ini
       - run:
           name: Wait for db
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
