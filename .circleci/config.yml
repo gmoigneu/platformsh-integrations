@@ -34,6 +34,7 @@ jobs:
           name: Display PHP information
           command: |
             php -v
+            php -i
             php composer.phar --version
       - run:
           name: Set php timezone
