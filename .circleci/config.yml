@@ -32,12 +32,12 @@ jobs:
       - run:
           name: Install project dependencies
           command: php composer.phar install --prefer-source --no-interaction
-      - run: Install Sylius
+      - run:
+          name: Install Sylius
           command: |
             php bin/console --env=test --no-debug --ansi cache:clear --no-warmup
             php bin/console --env=test --no-debug --ansi cache:warmup
             php bin/console --env=test --no-debug --ansi assets:install
-            # Next command is only needed if you are using themes
             php bin/console --env=test --no-debug --ansi theme:assets:install
             php bin/console --env=test sylius:install
       - run:
