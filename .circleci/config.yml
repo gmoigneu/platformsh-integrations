@@ -50,8 +50,8 @@ jobs:
             php bin/console --env=test --no-debug --ansi cache:clear --no-warmup
             php bin/console --env=test --no-debug --ansi cache:warmup
             php bin/console --env=test --no-debug --ansi assets:install
-            php bin/console --env=test --no-debug --ansi theme:assets:install
-            php bin/console --env=test sylius:install
+            php bin/console --env=test --no-debug --ansi sylius:theme:assets:install
+            php bin/console --env=test --no-debug --ansi sylius:install
       - run:
           name: Run CS tests
           command: vendor/bin/phpcs
