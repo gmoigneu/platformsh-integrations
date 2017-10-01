@@ -58,9 +58,9 @@ jobs:
             php bin/console --env=test --no-debug --no-interaction --ansi assets:install
             php bin/console --env=test --no-debug --no-interaction --ansi sylius:theme:assets:install
             php bin/console --env=test --no-debug --no-interaction --ansi sylius:install
-      - run:
-          name: Run CS tests
-          command: vendor/bin/phpcs
+      #- run:
+      #    name: Run CS tests
+      #    command: vendor/bin/phpcs
       - run:
           name: Run Unit tests
-          command: vendor/bin/phpunit
+          command: vendor/phpunit/phpunit/phpunit
