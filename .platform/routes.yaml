@@ -1,0 +1,8 @@
+# .platform/routes.yaml
+"http://{default}/":
+    type: upstream
+    upstream: "sylius:http"
+
+"http://www.{default}/":
+    type: redirect
+    to: "http://{default}/"
