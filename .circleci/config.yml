@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /var/www/html
     docker:
-      - image: php:7.1-apache
+      - image: php:7.1.4-apache
         environment:
           APP_ENV: test
       - image: mysql:5.7
@@ -37,7 +37,7 @@ jobs:
             php composer.phar --version
       - run:
           name: Set php timezone
-          command: echo "date.timezone = Europe/Paris" >> /opt/circleci/php/$(phpenv global)/etc/php.ini
+          command: echo "date.timezone = Europe/Paris" >> /opt/circleci/php/7.1.4/etc/php.ini
       - run:
           name: Wait for db
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
