@@ -46,7 +46,7 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: Copy parameters
-          command: cp app/config/parameters_test.circleci.yml app/config/parameters_test.yml
+          command: cp app/config/parameters_test.circleci.yml app/config/parameters.yml
       - run:
           name: Install project dependencies
           command: php composer.phar install --prefer-source --no-interaction

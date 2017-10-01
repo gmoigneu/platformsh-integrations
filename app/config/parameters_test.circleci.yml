@@ -1,5 +1,5 @@
 parameters:
   database_host: 127.0.0.1
-  database_name: circle_test
+  database_name: circle
   database_user: tester
   database_password: tester
