@@ -101,4 +101,8 @@ hooks:
         GULP_ENV=prod yarn run gulp
     deploy: |
         rm -rf var/cache/*
+        if [ ! -f var/logs/installed.lock ]; then
+          php bin/console sylius:install --env prod
+          touch var/logs/installed.lock
+        fi;
         php bin/console --env=prod doctrine:migrations:migrate --no-interaction
