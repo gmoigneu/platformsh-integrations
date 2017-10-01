@@ -6,6 +6,10 @@ jobs:
       - image: php:7.1-apache
         environment:
           APP_ENV: test
+      - image: mysql:5.7
+        environment:
+          - MYSQL_ROOT_PASSWORD=tester
+          - MYSQL_DATABASE=circle_test
     steps:
       - run:
           name: Install system packages
@@ -26,6 +30,9 @@ jobs:
           command: |
             php -v
             php composer.phar --version
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: Copy parameters
           command: cp app/config/parameters_test.circleci.yml app/config/parameters_test.yml
