@@ -27,8 +27,19 @@ jobs:
             php -v
             php composer.phar --version
       - run:
+          name: Copy parameters
+          command: cp app/config/parameters_test.circle.yml app/config/parameters_test.yml
+      - run:
           name: Install project dependencies
-          command: php composer.phar install
+          command: php composer.phar install --prefer-source --no-interaction
+      - run: Install Sylius
+          command: |
+            php bin/console --env=test --no-debug --ansi cache:clear --no-warmup
+            php bin/console --env=test --no-debug --ansi cache:warmup
+            php bin/console --env=test --no-debug --ansi assets:install
+            # Next command is only needed if you are using themes
+            php bin/console --env=test --no-debug --ansi theme:assets:install
+            php bin/console --env=test sylius:install
       - run:
           name: Run CS tests
           command: vendor/bin/phpcs
