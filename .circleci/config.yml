@@ -53,11 +53,11 @@ jobs:
       - run:
           name: Install Sylius
           command: |
-            php bin/console --env=test --no-debug --ansi cache:clear --no-warmup
-            php bin/console --env=test --no-debug --ansi cache:warmup
-            php bin/console --env=test --no-debug --ansi assets:install
-            php bin/console --env=test --no-debug --ansi sylius:theme:assets:install
-            php bin/console --env=test --no-debug --ansi sylius:install
+            php bin/console --env=test --no-debug --no-interaction --ansi cache:clear --no-warmup
+            php bin/console --env=test --no-debug --no-interaction --ansi cache:warmup
+            php bin/console --env=test --no-debug --no-interaction --ansi assets:install
+            php bin/console --env=test --no-debug --no-interaction --ansi sylius:theme:assets:install
+            php bin/console --env=test --no-debug --no-interaction --ansi sylius:install
       - run:
           name: Run CS tests
           command: vendor/bin/phpcs
